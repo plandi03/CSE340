@@ -8,8 +8,8 @@
 const express = require("express")
 const env = require("dotenv").config()
 const app = express()
-const static = require("./routes/static")
 const expressLayouts = require("express-ejs-layouts")
+const static = require("./routes/static") // Import the static routes
 
 /* ***********************
  * View Engine and Templates
@@ -21,11 +21,11 @@ app.set("layout", "./layouts/layout") // not at views root
 /* ***********************
  * Routes
  *************************/
-app.use(static)
+app.use(static) // Use the static routes for serving static files
 
 // Index route
-app.get("/", function(req, res) {
-  res.render("index", { title: "Home" })
+app.get("/", function(req, res){
+  res.render("index", {title: "Home"})
 })
 
 /* ***********************
